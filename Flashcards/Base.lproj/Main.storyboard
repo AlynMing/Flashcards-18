@@ -48,7 +48,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="Flashcards" destination="Bf9-x3-bXb" id="rdm-Tt-ehw"/>
                         <outlet property="backLabel" destination="8Ov-1F-DJy" id="Lo6-tV-YwO"/>
+                        <outlet property="card" destination="8bC-Xf-vdC" id="teY-oS-5gw"/>
                         <outlet property="frontLabel" destination="OhG-G8-3CS" id="RXt-NE-IXe"/>
                     </connections>
                 </viewController>
@@ -58,6 +60,7 @@
                         <action selector="didTapOnFlashcard:" destination="BYZ-38-t0r" id="Gxk-Ca-Mvy"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="EGN-gH-RjY"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="132.58928571428572"/>
         </scene>

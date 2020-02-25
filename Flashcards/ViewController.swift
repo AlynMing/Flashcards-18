@@ -12,15 +12,25 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet var card: UIView!
+    @IBOutlet weak var Flashcards: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Flashcards.layer.cornerRadius = 20.0
+        Flashcards.layer.shadowRadius = 15.0
+        Flashcards.layer.shadowOpacity = 0.2
+        Flashcards.clipsToBounds = true
+        
     }
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        frontLabel.isHidden = true
+        if(frontLabel.isHidden == false){
+            frontLabel.isHidden = true
+        }
+        else if(frontLabel.isHidden == true){
+            frontLabel.isHidden = false
+        }
     }
-    
 }
 
