@@ -2,7 +2,7 @@
 
 ## Lab 2
 
-### This is an iOS mobile app which is called Flashcards. This is the first lab of building the app. In this lab, I did the basics that will lead me to eventually built the app to the advance level. In this lab, I created a New Project using Xcode. I added two flashcards which are two squares. One square has the question and the other one has the answer. When the user clicks on the question that is displayed on the mobile app it hides the question and shows the answer to the user. The way this works is stacking the square that has the answer below the square that has the answer. when the user clicks on the question it uses a property called is hidden and which is set to be true so that it can hide the question and show the answer to the user.
+### This is an iOS mobile app which is called Flashcards. This is the second lab of this cource. In this lab I added new screnn for the flashcard. After that I added one button at the bottom to make your own personal flashcard. When you click on the flashcard it will take you to the new screen with the blanks to fill your own questions and three options for the question. At the end I added a two button one on the top right and one on the top left. The button on the top right is for the user to press when he or she is done with their flashcard. The number on the top left is to back to the existing flashcards that are already created by the user.
 
 # App Walk-though
 
