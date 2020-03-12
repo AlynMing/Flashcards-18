@@ -26,7 +26,7 @@
 
 ### App Walk-though
 
-<img src="file:///Users/jashanbhinder/Desktop/gifs/Gif%20for%20lab%201.gif" width=200><br>
+<img src="https://gph.is/g/ZnKLAoX" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
