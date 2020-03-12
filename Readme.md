@@ -26,7 +26,7 @@
 
 ### App Walk-though
 
-<img src="https://gph.is/g/ZnKLAoX" width=200><br>
+<img src="https://media.giphy.com/media/S86Ie7ezb3KezMapcQ/giphy.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
