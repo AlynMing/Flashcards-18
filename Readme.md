@@ -18,29 +18,23 @@
 - [ ] User gets an error if they try to create a new flashcard with no question or answer
 - [ ] User can edit existing flashcard
 - [ ] User can add multiple choice answers in the creation screen
-## NAME_OF_YOUR_APP_HERE
-
-📝 `NOTE:` Paste the README templates for each subsequent lab here at the top, (i.e. lab 2, 3, 4). This will show a history of your development process including which users stories you completed and how your app looked and functioned at each step.
 
 ## Lab 1
 
-### App Description
+### This is an iOS mobile app which is called Flashcards. This is the first lab of building the app. In this lab, I did the basics that will lead me to eventually built the app to the advance level. In this lab, I created a New Project using Xcode. I added two flashcards which are two squares. One square has the question and the other one has the answer. When the user clicks on the question that is displayed on the mobile app it hides the question and shows the answer to the user. The way this works is stacking the square that has the answer below the square that has the answer. when the user clicks on the question it uses a property called is hidden and which is set to be true so that it can hide the question and show the answer to the user.
 `
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
-<img src="YOUR_GIF_URL_HERE" width=200><br>
-
-`TODO://` In the User stories section below, add an `x` between the `-[ ]` like this `- [x]` for any user story you complete. (☝️ Remove this paragraph after after checking off user stories)
+<img src="file:///Users/jashanbhinder/Desktop/gifs/Gif%20for%20lab%201.gif" width=200><br>
 
 ## Required
-- [ ] Create New Project in Xcode
-- [ ] Add a view for the front side of the flashcard to display the question
-- [ ] Add a view for the back side of the flashcard to display the answer
-- [ ] Build in logic to show the answer side when the card is tapped
-- [ ] Push code to GitHub
+- [x] Create New Project in Xcode
+- [x] Add a view for the front side of the flashcard to display the question
+- [x] Add a view for the back side of the flashcard to display the answer
+- [x] Build in logic to show the answer side when the card is tapped
+- [x] Push code to GitHub
 ## Optional
-- [ ] Toggle the flashcard between the question side and the answer side
-- [ ] Style the question and answer side of the card to better distinguish between the two sides
-- [ ] Add selectable multiple choice answers beneath the card
+- [x] Toggle the flashcard between the question side and the answer side
+- [x] Style the question and answer side of the card to better distinguish between the two sides
+- [x] Add selectable multiple choice answers beneath the card
