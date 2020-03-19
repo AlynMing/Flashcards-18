@@ -16,6 +16,7 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var OptionOneTextField: UITextField!
     @IBOutlet weak var OptionTwoTextField: UITextField!
     @IBOutlet weak var OptionThreeTextField: UITextField!
+    @IBOutlet weak var AnswerTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -29,14 +30,12 @@ class CreationViewController: UIViewController {
     
     @IBAction func didTapOnDone(_ sender: Any) {
         let questionText = QuestionTextField.text
+        let AnswerText = AnswerTextField.text
         let OptionOneText = OptionOneTextField.text
         let OptionTwoText = OptionTwoTextField.text
         let OptionThreeText = OptionThreeTextField.text
         
-        flashcardsController.updateFlashcards (question: questionText!, OptionOne: OptionOneText!, Optiontwo: OptionTwoText!, Optionthree: OptionThreeText!)
-        
-        
-        
-        dismiss(animated: true)
+        flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!)
     }
+
 }

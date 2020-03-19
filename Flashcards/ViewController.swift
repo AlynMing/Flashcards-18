@@ -8,22 +8,75 @@
 
 import UIKit
 
+struct Flashcard{
+    var Question: String
+    var Answer: String
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet var card: UIView!
-    @IBOutlet weak var Flashcards: UIView!
+    @IBOutlet weak var Question: UIView!
+    @IBOutlet weak var Answer: UIView!
     @IBOutlet weak var OptionOne: UIButton!
     @IBOutlet weak var OptionTwo: UIButton!
     @IBOutlet weak var OptionThree: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBAction func didTapOnPrev(_ sender: Any) {
+        // Decrease current Index
+        currentIndex = currentIndex - 1
+        
+        // update labels
+        updateLabels()
+        
+        // Update button
+        updateNextPrevButtons()
+        
+    }
+    
+    @IBAction func didTapOnNext(_ sender: Any) {
+        // Increase current Index
+        currentIndex = currentIndex + 1
+        
+        // Update labels
+        updateLabels()
+        
+        // Update button
+        updateNextPrevButtons()
+    }
+    
+    // Array to hold the Flashcards
+    var flashcards = [Flashcard]()
+    
+    // Current Flashcard Index
+    var currentIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Flashcards.layer.cornerRadius = 20.0
-        Flashcards.layer.shadowRadius = 15.0
-        Flashcards.layer.shadowOpacity = 0.2
-        Flashcards.clipsToBounds = true
+        
+        // Read saved Flascards
+        readSavedFlashcards()
+        
+        // Adding our inial Flashcards if needed
+        if flashcards.count == 0 {
+            updateFlashcards(Question:"What is the capital of California?", Answer: "Sacramento" , OptionOne: "San Francisco", OptionTwo: "Sacramento", OptionThree: "Los Angeles")
+        } else {
+            updateLabels()
+            updateNextPrevButtons()
+        }
+        
+        Question.layer.cornerRadius = 20.0
+        Question.layer.shadowRadius = 15.0
+        Question.layer.shadowOpacity = 0.2
+        Question.clipsToBounds = true
+        Answer.layer.cornerRadius = 20.0
+        Answer.layer.shadowRadius = 15.0
+        Answer.layer.shadowOpacity = 0.2
+        Answer.clipsToBounds = true
         OptionOne.layer.borderWidth = 3.0
         OptionOne.layer.borderColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         OptionOne.layer.cornerRadius = 20.0
@@ -40,12 +93,34 @@ class ViewController: UIViewController {
         OptionThree.layer.shadowRadius = 15.0
         OptionThree.layer.shadowOpacity = 0.2
         
+    }
+    
+    func updateNextPrevButtons(){
+        // Disable next button if at the end
+        if currentIndex == flashcards.count - 1 {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
         
+        // Disable the Prev button if at the beginning
+        if currentIndex == flashcards.count - 1{
+            prevButton.isEnabled = true
+        } else {
+            prevButton.isEnabled = false
+        }
+    }
+    
+    func updateLabels(){
+        // Get current Flashcard
+        let currentFlashcard = flashcards[currentIndex]
         
+        //update labels
+        frontLabel.text = currentFlashcard.Question
+        backLabel.text = currentFlashcard.Answer
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let navigationController = segue.destination as! UINavigationController
         let creationController = navigationController.topViewController as! CreationViewController
         creationController.flashcardsController = self
@@ -57,14 +132,63 @@ class ViewController: UIViewController {
             OptionThree.isHidden = true
             frontLabel.isHidden = true
         }
-            
         else if(OptionTwo.isHidden == true && frontLabel.isHidden == true){
             OptionTwo.isHidden = true
             frontLabel.isHidden = false
         }
     }
-    func updateFlashcards(question: String, OptionOne: String, Optiontwo: String, Optionthree: String){
+    
+    func updateFlashcards(Question: String, Answer: String, OptionOne: String, OptionTwo: String, OptionThree: String){
+        let flashcard = Flashcard(Question: Question, Answer: Answer)
+        
+        // Adding flashcard in the flashcard Array
+        flashcards.append(flashcard)
+        
+        // Logging to the Console
+        print("Added new Flashcard :)")
+        print("We now have \(flashcards.count) flashcards")
+        
+        // Update Current Index
+        currentIndex = flashcards.count - 1
+        print("Our current Index \(currentIndex)")
+        
+        // Update Buttons
+        updateNextPrevButtons()
+        
+        // Update Labels
+        updateLabels()
+        
+        // Saving all Flashcards
+        saveAllFlashcardsToDisk()
     }
     
+    func saveAllFlashcardsToDisk() {
+        // From flashcard array to dictionary array
+        let dictionaryArray = flashcards.map { (card) -> [String: String] in
+            return ["question": card.Question, "answer" : card.Answer]
+        }
+        
+        // Save array on disk using UserDefault
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
+        
+        // Log in
+        print("Flashcards saved to UserDefault")
+        
+        // Save array on dish using UserDefault
+        UserDefaults.standard.set(flashcards, forKey: "flashcards")
+    }
+    
+    func readSavedFlashcards() {
+        
+        // Read Dictionary array from the disk(if any)
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]] {
+            // In here we have a dictionary array
+            let savedCards = dictionaryArray.map { dictionary -> Flashcard in
+                return Flashcard(Question: dictionary["question"]!, Answer: dictionary["answer"]!)
+            }
+            // Put all these cards in our flashcards array
+            flashcards.append(contentsOf: savedCards)
+        }
+    }
 }
 
