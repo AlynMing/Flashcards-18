@@ -40,6 +40,10 @@ class CreationViewController: UIViewController {
         let OptionThreeText = OptionThreeTextField.text
         
         // Check if empty
+        var isExisting = false
+        if initialQuestion != nil{
+            isExisting = true
+        }
         if questionText == nil || AnswerText == nil || questionText!.isEmpty || AnswerText!.isEmpty || OptionOneText == nil || OptionTwoText == nil || OptionThreeText == nil || OptionOneText!.isEmpty || OptionTwoText!.isEmpty || OptionThreeText!.isEmpty {
             // Show Error
             let alert = UIAlertController(title: "Missing Text", message: "You need to enter both a question, an answer, and options", preferredStyle: .alert)
@@ -48,7 +52,7 @@ class CreationViewController: UIViewController {
             present(alert, animated: true)
             
         } else {
-            flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!)
+            flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!, isExisting: true)
             dismiss(animated: true)
         }
     }
