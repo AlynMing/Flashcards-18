@@ -25,6 +25,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var OptionThree: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        
+        // Show confirmation
+        let alert = UIAlertController(title: "Delete Flashcard", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {action in
+            self.deleteCurrentFlashcard()
+    }
+    }
+    alert.addAction(deleteAction)
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    
+    func deleteCurrentFlashcard(){
+        
+    }
     
     @IBAction func didTapOnPrev(_ sender: Any) {
         // Decrease current Index
@@ -104,10 +118,10 @@ class ViewController: UIViewController {
         }
         
         // Disable the Prev button if at the beginning
-        if currentIndex == flashcards.count - 1{
-            prevButton.isEnabled = true
-        } else {
+        if currentIndex == flashcards.count + 1{
             prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
         }
     }
     
@@ -118,12 +132,19 @@ class ViewController: UIViewController {
         //update labels
         frontLabel.text = currentFlashcard.Question
         backLabel.text = currentFlashcard.Answer
+        OptionOne.setTitle(currentFlashcard.OptionOne, for: .normal)
+        OptionTwo.setTitle(currentFlashcard.Answer, for: .normal)
+        OptionThree.setTitle(currentFlashcard.OptionThree, for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let creationController = navigationController.topViewController as! CreationViewController
         creationController.flashcardsController = self
+        if segue.identifier == "EditSegue"{
+            creationController.initialQuestion = frontLabel.text
+            creationController.initialAnswer = backLabel.text
+        }
     }
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
@@ -138,8 +159,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcards(Question: String, Answer: String, OptionOne: String, OptionTwo: String, OptionThree: String){
-        let flashcard = Flashcard(Question: Question, Answer: Answer)
+    func updateFlashcards(Question: String, Answer: String, OptionOne: String?, OptionTwo: String?, OptionThree: String?){
+        let flashcard = Flashcard(Question: Question, Answer: Answer, OptionOne: OptionOne, OptionTwo: OptionTwo, OptionThree: OptionThree)
         
         // Adding flashcard in the flashcard Array
         flashcards.append(flashcard)

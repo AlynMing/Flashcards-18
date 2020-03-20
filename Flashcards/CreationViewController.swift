@@ -17,12 +17,16 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var OptionTwoTextField: UITextField!
     @IBOutlet weak var OptionThreeTextField: UITextField!
     @IBOutlet weak var AnswerTextField: UITextField!
+    var initialQuestion: String?
+    var initialAnswer: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        QuestionTextField.text = initialQuestion
+        AnswerTextField.text = initialAnswer
     }
     @IBAction func didTapOnCancel(_ sender: Any) {
         dismiss(animated: true)
@@ -35,7 +39,18 @@ class CreationViewController: UIViewController {
         let OptionTwoText = OptionTwoTextField.text
         let OptionThreeText = OptionThreeTextField.text
         
-        flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!)
+        // Check if empty
+        if questionText == nil || AnswerText == nil || questionText!.isEmpty || AnswerText!.isEmpty || OptionOneText == nil || OptionTwoText == nil || OptionThreeText == nil || OptionOneText!.isEmpty || OptionTwoText!.isEmpty || OptionThreeText!.isEmpty {
+            // Show Error
+            let alert = UIAlertController(title: "Missing Text", message: "You need to enter both a question, an answer, and options", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true)
+            
+        } else {
+            flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!)
+            dismiss(animated: true)
+        }
     }
 
 }

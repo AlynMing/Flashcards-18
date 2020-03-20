@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bf9-x3-bXb">
-                                <rect key="frame" x="84" y="364" width="247" height="168"/>
+                            <view contentMode="scaleToFill" id="IB2-MQ-WCN">
+                                <rect key="frame" x="83" y="364" width="247" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sacramento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ov-1F-DJy">
@@ -29,13 +29,10 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kkS-u6-cB3" appends="YES" id="mkf-kU-May"/>
-                                </connections>
+                                <viewLayoutGuide key="safeArea" id="Opv-JI-n5f" propertyAccessControl="none"/>
                             </view>
-                            <view contentMode="scaleToFill" id="IB2-MQ-WCN">
-                                <rect key="frame" x="83" y="364" width="247" height="168"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bf9-x3-bXb">
+                                <rect key="frame" x="84" y="364" width="247" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the capital of California?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-G8-3CS">
@@ -47,9 +44,27 @@
                                         <color key="textColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.73100625029999999" green="0.95783440480000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhW-7T-hoc">
+                                        <rect key="frame" x="217" y="126" width="30" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="✏️"/>
+                                        <connections>
+                                            <segue destination="pnx-RE-G6b" kind="showDetail" identifier="EditSegue" id="4F9-fe-CBQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Wz-XH-WlF">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="❌"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <viewLayoutGuide key="safeArea" id="Opv-JI-n5f" propertyAccessControl="none"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kkS-u6-cB3" appends="YES" id="mkf-kU-May"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRh-t0-2Ak">
                                 <rect key="frame" x="84" y="593" width="257" height="48"/>
@@ -110,7 +125,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="pnx-RE-G6b" kind="presentation" identifier="" id="EBR-w9-Dw4"/>
+                                    <segue destination="pnx-RE-G6b" kind="showDetail" id="xzG-YU-eUx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -225,4 +240,7 @@
             <point key="canvasLocation" x="842.02898550724649" y="133.92857142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4F9-fe-CBQ"/>
+    </inferredMetricsTieBreakers>
 </document>
