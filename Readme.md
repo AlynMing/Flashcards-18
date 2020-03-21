@@ -1,4 +1,20 @@
-## Flashcards
+## Lab 3
+
+### App Description
+In lab 3 I was able to complete the required and optional from lab 3 and lab2. In lab 3 I was able to make my app have multiple flashcards and the user can go back and forth through the flashcards while using the app. Along with that, I was able to store the flashcards to the disk and when the user closes the app and comes back to it will still show the card that was created before closing the app. For the optional part, I was able to put a cross button on the label so that the user can delete the current flashcard and the user can edit the card by clicking on the pencil icon. Last, not the least I was able to have multiple options for the questions for the flashcards.
+
+### App Walk-though
+
+<img src="http://g.recordit.co/NpZOXPPPjQ.gif" width=200><br>
+
+## Required
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
+- [x] Push code to GitHub
+## Optional
+- [x] User can delete a flashcard
+- [x] User can edit existing flashcard
+- [x] User can store multiple choice questions## Flashcards
 
 ## Lab 2
 
@@ -6,7 +22,7 @@
 
 # App Walk-through
 
-<img src="http://g.recordit.co/LZPgWGdjtC.gif" width=200><br>
+<img src="http://g.recordit.co/Go4Mb3zeBH.gif" width=200><br>
 
 
 ## Required
@@ -15,9 +31,9 @@
 - [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
-- [ ] User can edit existing flashcard
-- [ ] User can add multiple choice answers in the creation screen
+- [x] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User can edit existing flashcard
+- [x] User can add multiple choice answers in the creation screen
 
 ## Lab 1
 
