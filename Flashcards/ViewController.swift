@@ -149,6 +149,11 @@ class ViewController: UIViewController {
         OptionOne.setTitle(currentFlashcard.OptionOne, for: .normal)
         OptionTwo.setTitle(currentFlashcard.Answer, for: .normal)
         OptionThree.setTitle(currentFlashcard.OptionThree, for: .normal)
+        
+        frontLabel.isHidden = false
+        OptionOne.isHidden = false
+        OptionTwo.isHidden = false
+        OptionThree.isHidden = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -158,6 +163,9 @@ class ViewController: UIViewController {
         if segue.identifier == "EditSegue"{
             creationController.initialQuestion = frontLabel.text
             creationController.initialAnswer = backLabel.text
+            creationController.initialOptionOne = OptionOne.titleLabel?.text
+            creationController.initialOptionTwo = OptionTwo.titleLabel?.text
+            creationController.initialOptionThree = OptionThree.titleLabel?.text
         }
     }
     

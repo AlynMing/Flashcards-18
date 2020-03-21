@@ -19,6 +19,9 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var AnswerTextField: UITextField!
     var initialQuestion: String?
     var initialAnswer: String?
+    var initialOptionOne: String?
+    var initialOptionTwo: String?
+    var initialOptionThree: String?
     
     
     override func viewDidLoad() {
@@ -27,6 +30,10 @@ class CreationViewController: UIViewController {
         // Do any additional setup after loading the view.
         QuestionTextField.text = initialQuestion
         AnswerTextField.text = initialAnswer
+        OptionOneTextField.text = initialOptionOne
+        OptionTwoTextField.text = initialOptionTwo
+        OptionThreeTextField.text = initialOptionThree
+        
     }
     @IBAction func didTapOnCancel(_ sender: Any) {
         dismiss(animated: true)
