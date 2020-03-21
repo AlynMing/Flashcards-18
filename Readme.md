@@ -23,7 +23,7 @@ In lab 3 I was able to complete the required and optional from lab 3 and lab2. I
 
 # App Walk-through
 
-<img src="http://g.recordit.co/LZPgWGdjtC.gif" width=200><br>
+<img src="http://g.recordit.co/Go4Mb3zeBH.gif" width=200><br>
 
 
 ## Required
