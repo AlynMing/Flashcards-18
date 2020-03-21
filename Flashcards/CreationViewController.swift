@@ -52,7 +52,7 @@ class CreationViewController: UIViewController {
             present(alert, animated: true)
             
         } else {
-            flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!, isExisting: true)
+            flashcardsController.updateFlashcards (Question: questionText!, Answer: AnswerText!, OptionOne: OptionOneText!, OptionTwo: OptionTwoText!, OptionThree: OptionThreeText!, isExisting: false)
             dismiss(animated: true)
         }
     }

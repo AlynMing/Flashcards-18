@@ -21,8 +21,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet var card: UIView!
-    @IBOutlet weak var Question: UIView!
-    @IBOutlet weak var Answer: UIView!
     @IBOutlet weak var OptionOne: UIButton!
     @IBOutlet weak var OptionTwo: UIButton!
     @IBOutlet weak var OptionThree: UIButton!
@@ -97,20 +95,16 @@ class ViewController: UIViewController {
         
         // Adding our inial Flashcards if needed
         if flashcards.count == 0 {
-            updateFlashcards(Question:"What is the capital of California?", Answer: "Sacramento" , OptionOne: "San Francisco", OptionTwo: "Sacramento", OptionThree: "Los Angeles", isExisting: true)
+            updateFlashcards(Question:"What is the capital of California?", Answer: "Sacramento" , OptionOne: "San Francisco", OptionTwo: "Sacramento", OptionThree: "Los Angeles", isExisting: false)
         } else {
             updateLabels()
             updateNextPrevButtons()
         }
         
-        Question.layer.cornerRadius = 20.0
-        Question.layer.shadowRadius = 15.0
-        Question.layer.shadowOpacity = 0.2
-        Question.clipsToBounds = true
-        Answer.layer.cornerRadius = 20.0
-        Answer.layer.shadowRadius = 15.0
-        Answer.layer.shadowOpacity = 0.2
-        Answer.clipsToBounds = true
+        card.layer.cornerRadius = 20.0
+        card.layer.shadowRadius = 15.0
+        card.layer.shadowOpacity = 0.2
+        card.clipsToBounds = true
         OptionOne.layer.borderWidth = 3.0
         OptionOne.layer.borderColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         OptionOne.layer.cornerRadius = 20.0
@@ -138,7 +132,7 @@ class ViewController: UIViewController {
         }
         
         // Disable the Prev button if at the beginning
-        if currentIndex == flashcards.count + 1{
+        if currentIndex == 0{
             prevButton.isEnabled = false
         } else {
             prevButton.isEnabled = true
@@ -221,7 +215,7 @@ class ViewController: UIViewController {
         print("Flashcards saved to UserDefault")
         
         // Save array on dish using UserDefault
-        UserDefaults.standard.set(flashcards, forKey: "flashcards")
+        //UserDefaults.standard.set(flashcards, forKey: "flashcards")
     }
     
     func readSavedFlashcards() {
