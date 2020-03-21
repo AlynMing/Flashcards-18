@@ -4,9 +4,8 @@
 In lab 3 I was able to complete the required and optional from lab 3 and lab2. In lab 3 I was able to make my app have multiple flashcards and the user can go back and forth through the flashcards while using the app. Along with that, I was able to store the flashcards to the disk and when the user closes the app and comes back to it will still show the card that was created before closing the app. For the optional part, I was able to put a cross button on the label so that the user can delete the current flashcard and the user can edit the card by clicking on the pencil icon. Last, not the least I was able to have multiple options for the questions for the flashcards.
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="http://g.recordit.co/NpZOXPPPjQ.gif" width=200><br>
 
 ## Required
 - [x] User can browse through multiple flashcards
