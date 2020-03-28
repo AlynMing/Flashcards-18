@@ -68,6 +68,8 @@ class ViewController: UIViewController {
         // Update button
         updateNextPrevButtons()
         
+        animateCardOutPrev()
+        
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
@@ -79,6 +81,8 @@ class ViewController: UIViewController {
         
         // Update button
         updateNextPrevButtons()
+        
+        animateCardOutNext()
     }
     
     // Array to hold the Flashcards
@@ -170,15 +174,68 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
-        if((OptionOne.isHidden && OptionThree.isHidden && frontLabel.isHidden == false)  == false){
-            OptionOne.isHidden = true
-            OptionThree.isHidden = true
-            frontLabel.isHidden = true
+        flipFlashcard()
+    }
+        func flipFlashcard(){
+            UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                if((self.OptionOne.isHidden && self.OptionThree.isHidden && self.frontLabel.isHidden == false)  == false){
+                    self.OptionOne.isHidden = true
+                    self.OptionThree.isHidden = true
+                    self.frontLabel.isHidden = true
+                }
+                else if(self.OptionTwo.isHidden == true && self.frontLabel.isHidden == true){
+                    self.OptionTwo.isHidden = true
+                    self.frontLabel.isHidden = false
+                }
+            })
         }
-        else if(OptionTwo.isHidden == true && frontLabel.isHidden == true){
-            OptionTwo.isHidden = true
-            frontLabel.isHidden = false
+    
+    func animateCardOutNext(){
+        UIView.animate(withDuration: 0.2, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+            
+            // Run another Animation
+            animateCardInNext()
+            
+            // Update the labels
+            self.updateLabels()
+    })
+    
+    func animateCardInNext(){
+        // Start on the right side
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        // Animate card going back to its original spot
+        UIView.animate(withDuration: 0.2) {
+            self.card.transform = CGAffineTransform.identity
         }
+        
+    }
+    }
+    
+    func animateCardOutPrev(){
+        UIView.animate(withDuration: 0.2, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }, completion: { finished in
+            
+            // Run another Animation
+            animateCardInPrev()
+            
+            // Update the labels
+            self.updateLabels()
+    })
+    
+    func animateCardInPrev(){
+        // Start on the right side
+        card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        
+        // Animate card going back to its original spot
+        UIView.animate(withDuration: 0.2) {
+            self.card.transform = CGAffineTransform.identity
+        }
+        
+    }
     }
     
     func updateFlashcards(Question: String, Answer: String, OptionOne: String?, OptionTwo: String?, OptionThree: String?, isExisting: Bool){
