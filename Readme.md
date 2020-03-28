@@ -1,3 +1,24 @@
+## Lab 4
+
+### App Description
+In lab 4 I was able to implement the animation through the app. When the user taps on the correct answer it will flip the answer card. Along with the app has its icon and the app will show a splash screen when the app is opened. last, not the least I was able to implement the animation when the user taps on the next and prev arrow and it will show an animation that slides the card across the screen depending on what the user pressed.
+
+### App Walk-though
+
+<img src="http://g.recordit.co/HHrvfn0lQS.gif" width=200><br>
+
+## Required
+- [x] User should see the app icon 
+- [x] User should see a splash screen
+- [x] User should see an flip animation when revealing the answer
+- [x] User should see a slide animation when going to the next flashcard
+- [x] User should see a slide animation when going to the previous flashcard
+- [x] Push code to GitHub
+## Optional
+- [ ] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [ ] User should see all views properly layout when using the app on a phone of different sizes
+- [ ] Correct answer in multiple choice
+
 ## Lab 3
 
 ### App Description
