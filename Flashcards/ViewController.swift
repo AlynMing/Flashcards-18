@@ -91,6 +91,20 @@ class ViewController: UIViewController {
     // Current Flashcard Index
     var currentIndex = 0
     
+    //override func viewWillApper(_ animated: Bool){
+        //super.viewWillAppear(animated)
+            
+        //card.alpha = 0.0
+        //card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        // Animation
+        //UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+           // self.card.alpha = 0.0
+            //self.card.transform = CGAffineTransform.identity
+        //})
+            
+    //}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,6 +119,7 @@ class ViewController: UIViewController {
             updateNextPrevButtons()
         }
         
+    
         card.layer.cornerRadius = 20.0
         card.layer.shadowRadius = 15.0
         card.layer.shadowOpacity = 0.2
