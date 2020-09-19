@@ -5,7 +5,7 @@ In lab 4 I was able to implement the animation through the app. When the user ta
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/HHrvfn0lQS.gif" width=200><br>
+<img src="http://g.recordit.co/ydCPWc1AIs.gif" width=200><br>
 
 ## Required
 - [x] User should see the app icon 
